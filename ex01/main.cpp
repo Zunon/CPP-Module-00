@@ -25,34 +25,34 @@ static std::string	prompt(const std::string &prompt) {
 	return (trim(result));
 }
 
-static void search_contact(PhoneBook *book) {
+static void search_contact(PhoneBook book) {
 	int	index;
 
-	for (unsigned int i = 0; i < book->getSize(); i++) {
+	for (unsigned int i = 0; i < book.getSize(); i++) {
 		std::cout << std::right << std::setw(10) << i + 1 << '|';
-		std::cout << book->getContacts()[i] << std::endl;
+		std::cout << book.getContacts()[i] << std::endl;
 	}
-	if (book->getSize() == 0) return;
+	if (book.getSize() == 0) return;
 	index = std::atoi(prompt("Choose a contact ID Number").c_str()) - 1;
-	if (index < 0 || index >= book->getSize())
+	if (index < 0 || index >= book.getSize())
 		std::cout << "INVALID ID NUMBER" << std::endl;
 	else {
-		std::cout << "First Name: " << book->getContacts()[index].getFirstName() << std::endl;
-		std::cout << "Last Name: " << book->getContacts()[index].getLastName() << std::endl;
-		std::cout << "Nickname: " << book->getContacts()[index].getNickName() << std::endl;
+		std::cout << "First Name: " << book.getContacts()[index].getFirstName() << std::endl;
+		std::cout << "Last Name: " << book.getContacts()[index].getLastName() << std::endl;
+		std::cout << "Nickname: " << book.getContacts()[index].getNickName() << std::endl;
 	}
 }
 
-static void	add_contact(PhoneBook *book) {
+static void	add_contact(PhoneBook book) {
 	std::string	first_name, last_name, nickname;
 
 	first_name = prompt("First Name:");
 	last_name = prompt("Last Name:");
 	nickname = prompt("Nickname:");
-	book->addContact(Contact(first_name, last_name, nickname));
+	book.addContact(Contact(first_name, last_name, nickname));
 }
 
-static void	operate_on(PhoneBook *book, std::string input) {
+static void	operate_on(PhoneBook book, std::string input) {
 	if (input == "ADD")
 		add_contact(book);
 	else if (input == "SEARCH")
@@ -60,10 +60,10 @@ static void	operate_on(PhoneBook *book, std::string input) {
 }
 
 int	main(void) {
-	PhoneBook *book;
+	PhoneBook book;
 	std::string input;
 
-	book = new PhoneBook();
+	book = PhoneBook();
 	input = prompt(MAIN_PROMPT);
 	while (input != "EXIT") {
 		operate_on(book, input);
