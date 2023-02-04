@@ -41,6 +41,10 @@ Contact		*PhoneBook::getContacts(void) {
 	return (contacts);
 }
 
+unsigned char	PhoneBook::getSize(void) {
+	return (size);
+}
+
 PhoneBook::~PhoneBook(void) {
 	oldest = NULL;
 	size = 0;

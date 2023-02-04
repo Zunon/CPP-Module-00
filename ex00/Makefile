@@ -16,3 +16,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.cpp.o:
+	$(CC) $(CFLAGS) -c $< -o $@

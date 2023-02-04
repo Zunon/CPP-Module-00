@@ -10,15 +10,16 @@
 # endif
 
 class PhoneBook {
-	Contact			*oldest;
-	unsigned char	size;
-	Contact			contacts[PHONEBOOK_CAPACITY];
+	Contact				*oldest;
+	unsigned char		size;
+	Contact				contacts[PHONEBOOK_CAPACITY];
 	public:
 		PhoneBook (void);
-		PhoneBook (const PhoneBook&);
-		PhoneBook	&operator= (const PhoneBook &);
-		void		addContact (const Contact &);
-		Contact		*getContacts (void);
+		PhoneBook (const PhoneBook &);
+		PhoneBook		&operator= (const PhoneBook &);
+		void			addContact (const Contact &);
+		Contact			*getContacts (void);
+		unsigned char	getSize (void);
 		~PhoneBook (void);
 };
 
