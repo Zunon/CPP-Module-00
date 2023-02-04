@@ -27,10 +27,12 @@ static std::string	prompt(const std::string &prompt) {
 
 static void search_contact(PhoneBook *book) {
 	int	index;
+
 	for (unsigned int i = 0; i < book->getSize(); i++) {
 		std::cout << std::right << std::setw(10) << i + 1 << '|';
 		std::cout << book->getContacts()[i] << std::endl;
 	}
+	if (book->getSize() == 0) return;
 	index = std::atoi(prompt("Choose a contact ID Number").c_str()) - 1;
 	if (index < 0 || index >= book->getSize())
 		std::cout << "INVALID ID NUMBER" << std::endl;
