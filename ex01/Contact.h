@@ -7,10 +7,18 @@
 # include <string>
 
 class Contact {
+	std::string		firstName;
+	std::string		lastName;
+	std::string		nickName;
 	public:
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
+		Contact (void);
+		Contact (const Contact &);
+		Contact (std::string, std::string, std::string);
+		Contact		&operator= (const Contact &);
+		std::string	getFirstName (void);
+		std::string	getLastName (void);
+		std::string	getNickName (void);
+		~Contact (void);
 };
 
 
